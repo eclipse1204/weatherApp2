@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Weather App</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    </head>
+    <body>
+        
+      <%- include("header.ejs") %>
+        <section>
+          <h1 class="my-4 text-center"><%= city %></h1>
+          <div class="container py-3">
+          
+            <main>
+              
+
+              <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                <div class="col">
+                  <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                      <h4 class="my-0 fw-normal">Temperature</h4>
+                    </div>
+                    <div class="card-body">
+                      <h1 class="card-title pricing-card-title"><%= activity.temp %>°C<small class="text-body-secondary fw-light"></small></h1>
+                      <ul class="list-unstyled mt-3 mb-4">
+                        <li>Temperature : <%= activity.temp %>°C</li>
+                        <li>Min Temperature : <%= activity.min_temp %>°C</li>
+                        <li>Max Temperature : <%= activity.max_temp %>°C</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                      <h4 class="my-0 fw-normal">Humidity</h4>
+                    </div>
+                    <div class="card-body">
+                      <h1 class="card-title pricing-card-title"><%= activity.humidity %> %<small class="text-body-secondary fw-light"></small></h1>
+                      <ul class="list-unstyled mt-3 mb-4">
+                        <li>Humidity : <%= activity.humidity %> %</li>
+                        <li>Feels like : <%= activity.feels_like %>°C</li>
+                        <li>Cloud pct : <%= activity.cloud_pct %></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card mb-4 rounded-3 shadow-sm border-primary">
+                    <div class="card-header py-3 text-bg-primary border-primary">
+                      <h4 class="my-0 fw-normal">Other</h4>
+                    </div>
+                    <div class="card-body">
+                      <!-- <h1 class="card-title pricing-card-title">$29<small class="text-body-secondary fw-light">/mo</small></h1> -->
+                      <ul class="list-unstyled mt-3 mb-4">
+                        <li>Wind Speed : <%= activity.wind_speed %> km/hr</li>
+                        <li>Wind Degrees : <%= activity.wind_degrees %></li>
+                        <!-- <li>Sunrise : <%= activity.humidity %></li>
+                        <li>Sunset</li> -->
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          
+              <h2 class="display-6 text-center mb-4">Weather of other cities</h2>
+          
+              <div class="table-responsive">
+                <table class="table text-center">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Cloud pct</th>
+                      <th>Temperature</th>
+                      <th>Feels like</th>
+                      <th>Humidity</th>
+                      <th>Minimum Temperature</th>
+                      <th>Maximum Temperature</th>
+                      <th>Wind speed</th>
+                      <th>wind degrees</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row" class="text-start">Hyderabad</th>
+                      <td><%= weather[0][0] %></td>
+                      <td><%= weather[0][1] %></td>
+                      <td><%= weather[0][2] %></td>
+                      <td><%= weather[0][3] %></td>
+                      <td><%= weather[0][4] %></td>
+                      <td><%= weather[0][5] %></td>
+                      <td><%= weather[0][6] %></td>
+                      <td><%= weather[0][7] %></td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="text-start">Chennai</th>
+                      <td><%= weather[1][0] %></td>
+                      <td><%= weather[1][1] %></td>
+                      <td><%= weather[1][2] %></td>
+                      <td><%= weather[1][3] %></td>
+                      <td><%= weather[1][4] %></td>
+                      <td><%= weather[1][5] %></td>
+                      <td><%= weather[1][6] %></td>
+                      <td><%= weather[1][7] %></td>
+                    </tr>
+                  </tbody>
+          
+                  <tbody>
+                    <tr>
+                      <th scope="row" class="text-start">Kolkata</th>
+                      <td><%= weather[2][0] %></td>
+                      <td><%= weather[2][1] %></td>
+                      <td><%= weather[2][2] %></td>
+                      <td><%= weather[2][3] %></td>
+                      <td><%= weather[2][4] %></td>
+                      <td><%= weather[2][5] %></td>
+                      <td><%= weather[2][6] %></td>
+                      <td><%= weather[2][7] %></td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="text-start">Lucknow</th>
+                      <td><%= weather[3][0] %></td>
+                      <td><%= weather[3][1] %></td>
+                      <td><%= weather[3][2] %></td>
+                      <td><%= weather[3][3] %></td>
+                      <td><%= weather[3][4] %></td>
+                      <td><%= weather[3][5] %></td>
+                      <td><%= weather[3][6] %></td>
+                      <td><%= weather[3][7] %></td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="text-start">Pune</th>
+                      <td><%= weather[4][0] %></td>
+                      <td><%= weather[4][1] %></td>
+                      <td><%= weather[4][2] %></td>
+                      <td><%= weather[4][3] %></td>
+                      <td><%= weather[4][4] %></td>
+                      <td><%= weather[4][5] %></td>
+                      <td><%= weather[4][6] %></td>
+                      <td><%= weather[4][7] %></td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="text-start">Ahmedabad</th>
+                      <td><%= weather[5][0] %></td>
+                      <td><%= weather[5][1] %></td>
+                      <td><%= weather[5][2] %></td>
+                      <td><%= weather[5][3] %></td>
+                      <td><%= weather[5][4] %></td>
+                      <td><%= weather[5][5] %></td>
+                      <td><%= weather[5][6] %></td>
+                      <td><%= weather[5][7] %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </main>
+          
+          </div>
+        </section>
+
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+        <script src="./index.js"></script>
+    </body>
+</html>

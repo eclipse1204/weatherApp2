@@ -1,0 +1,9 @@
+.error_image
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    gap: 5%;
+}
